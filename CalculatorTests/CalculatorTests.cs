@@ -38,4 +38,14 @@ public class CalculatorTests
         var actual = Calculator.Calculator.Subtract(2.5, 2.2);
         Assert.Equal(expected, actual);
     }
+
+    [Theory]
+    [InlineData(25, 0, 1)]
+    [InlineData(3, 1, 3)]
+    [InlineData(25, 0.5, 5)]
+    public void Power_Test(double num, double power, double expected)
+    {
+        var actual = Calculator.Calculator.Power(num, power);
+        Assert.Equal(expected, actual);
+    }
 }
