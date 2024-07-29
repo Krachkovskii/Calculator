@@ -9,6 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calculator", "Calculator\Ca
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculatorUi", "CalculatorUi\CalculatorUi.csproj", "{4A37E52E-6497-447F-A175-9F15835B7247}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{E971CC32-6F9F-48F0-AC51-2AFCB4E44825}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Workflows", "Workflows", "{FEE4F4C1-61A9-4C5D-BA5C-67A7D86636B3}"
+	ProjectSection(SolutionItems) = preProject
+		build-tests.yml = build-tests.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +37,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FEE4F4C1-61A9-4C5D-BA5C-67A7D86636B3} = {E971CC32-6F9F-48F0-AC51-2AFCB4E44825}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D2423D4D-46E9-4349-9FDA-CA871961BEB2}
