@@ -1,8 +1,8 @@
-﻿<Application x:Class="Frst_UnitTest_WPF_UI.App"
+﻿<Application x:Class="CalculatorProject.CalculatorUi.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Frst_UnitTest_WPF_UI"
-             StartupUri="MainWindow.xaml">
+             xmlns:local="clr-namespace:CalculatorProject.CalculatorUi"
+             StartupUri="CalculatorView.xaml">
     <Application.Resources>
          
     </Application.Resources>

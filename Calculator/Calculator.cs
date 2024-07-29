@@ -1,10 +1,10 @@
 ﻿using System.Numerics;
 
-namespace First_UnitTest.Calculator;
+namespace CalculatorProject.Calculator;
 
 public static class Calculator
 {
-    public static int Precision
+    public static UInt16 Precision
     {
         get; set;
     } = 5;
@@ -26,6 +26,10 @@ public static class Calculator
 
     public static double Divide(double x, double y)
     {
+        if (y == 0)
+        {
+            throw new DivideByZeroException();
+        }
         return Math.Round((x / y), Precision);
     }
 

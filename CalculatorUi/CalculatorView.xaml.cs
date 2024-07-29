@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 using Wpf.Ui.Appearance;
 using Wpf.Ui.Controls;
 
-namespace First_UnitTest.CalculatorUi;
+namespace CalculatorProject.CalculatorUi;
 
 /// <summary>
 /// Interaction logic for CalculatorView.xaml
@@ -26,5 +26,22 @@ public partial class CalculatorView : FluentWindow
         InitializeComponent();
         this.DataContext = new CalculatorViewModel();
         ApplicationThemeManager.Apply(this);
+        WindowBackdropType = WindowBackdropType.Acrylic;
+    }
+
+    private void Calculator_KeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.Key == Key.Escape) 
+        { 
+            this.Close();
+        }
+    }
+
+    private void FluentWindow_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+        if (e.LeftButton == MouseButtonState.Pressed)
+        {
+            DragMove();
+        }
     }
 }

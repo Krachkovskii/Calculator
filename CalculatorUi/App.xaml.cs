@@ -2,7 +2,7 @@
 using System.Data;
 using System.Windows;
 
-namespace Frst_UnitTest_WPF_UI;
+namespace CalculatorProject.CalculatorUi;
 /// <summary>
 /// Interaction logic for App.xaml
 /// </summary>

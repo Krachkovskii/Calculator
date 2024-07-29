@@ -1,6 +1,6 @@
 ﻿using Xunit;
 
-namespace First_UnitTest.CalculatorTests;
+namespace CalculatorProject.CalculatorTests;
 
 public class CalculatorTests
 {
@@ -23,6 +23,12 @@ public class CalculatorTests
     {
         var actual = Calculator.Calculator.Subtract(x, y);
         Assert.Equal(expected, actual);
+    }
+
+    [Fact]
+    public void DivideByZero()
+    {
+        var ex = Assert.Throws<DivideByZeroException>(() => Calculator.Calculator.Divide(5, 0));
     }
 
     [Fact]

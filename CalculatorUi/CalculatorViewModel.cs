@@ -9,14 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
 
-namespace First_UnitTest.CalculatorUi;
+namespace CalculatorProject.CalculatorUi;
 
 class CalculatorViewModel : INotifyPropertyChanged
 {
     private double _num1;
     private double _num2;
     private double _result;
-    private int _precision;
+    private UInt16 _precision;
+    private bool _canDecreasePrecision = true;
+    private bool _canIncreasePrecision = true;
 
     public double Num1
     {
@@ -48,7 +50,7 @@ class CalculatorViewModel : INotifyPropertyChanged
         }
     }
 
-    public int Precision
+    public UInt16 Precision
     {
         get => _precision;
         set
@@ -56,6 +58,32 @@ class CalculatorViewModel : INotifyPropertyChanged
             _precision = value;
             Calculator.Calculator.Precision = _precision;
             OnPropertyChanged(nameof(Precision));
+        }
+    }
+
+    public bool CanDecreasePrecision
+    {
+        get => _canDecreasePrecision;
+        set
+        {
+            if (Precision == 0)
+            {
+                _canDecreasePrecision = false;
+                OnPropertyChanged(nameof(CanDecreasePrecision));
+            }
+        }
+    }
+
+    public bool CanIncreasePrecision
+    {
+        get => _canIncreasePrecision;
+        set
+        {
+            if (Precision == 99)
+            {
+                _canIncreasePrecision = false;
+                OnPropertyChanged(nameof(CanIncreasePrecision));
+            }
         }
     }
 
