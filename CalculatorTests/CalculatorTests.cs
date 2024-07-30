@@ -31,11 +31,11 @@ public class CalculatorTests
         var ex = Assert.Throws<DivideByZeroException>(() => Calculator.Calculator.Divide(5, 0));
     }
 
-    [Fact]
-    public void Subtract_Doubles()
+    [Theory]
+    [InlineData(3, 2, 2)]
+    public void Subtract_Doubles(double x, double y, double expected)
     {
-        var expected = 0.3d;
-        var actual = Calculator.Calculator.Subtract(2.5, 2.2);
+        var actual = Calculator.Calculator.Subtract(x, y);
         Assert.Equal(expected, actual);
     }
 
