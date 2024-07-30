@@ -15,13 +15,19 @@
                  MouseDown="FluentWindow_MouseDown">
 
     <Window.Resources>
-        <Style x:Key="ActionButton" TargetType="Button">
+        <Style x:Key="ActionButton" TargetType="ui:Button">
             <Setter Property="Width" Value="35"/>
             <Setter Property="Height" Value="35"/>
             <Setter Property="Padding" Value="5"/>
             <Setter Property="Margin" Value="5"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+        <Style x:Key="Annotation" TargetType="ui:TextBlock">
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="10"/>
         </Style>
     </Window.Resources>
 
@@ -53,18 +59,23 @@
                     HorizontalAlignment="Center">
             
             <ui:Button Content="+"
+                       Width="30"
                        Command="{Binding AddCommand}"/>
             
             <ui:Button Content="-"
+                       Width="30"
                        Command="{Binding SubtractCommand}"/>
             
             <ui:Button Content="*"
+                       Width="30"
                        Command="{Binding MultiplyCommand}"/>
             
             <ui:Button Content="/"
+                       Width="30"
                        Command="{Binding DivideCommand}"/>
             
             <ui:Button Content="^"
+                       Width="30"
                        Command="{Binding PowerCommand}"/>
             
         </StackPanel>
@@ -76,6 +87,7 @@
             
             <ui:Button x:Name="LessPrecise"
                        Content="-"
+                       Width="30"
                        Command="{Binding ChangePrecisionCommand}"
                        CommandParameter="{Binding Content}"
                        IsEnabled="{Binding CanDecreasePrecision}"/>
@@ -87,6 +99,7 @@
                           TextAlignment="Center"/>
 
             <ui:Button Content="+"
+                       Width="30"
                        Command="{Binding ChangePrecisionCommand}"
                        CommandParameter="{Binding Content}"
                        IsEnabled="{Binding CanIncreasePrecision}"/>
@@ -100,18 +113,37 @@
                    VerticalAlignment="Center"/>
 
         <ui:TextBlock Grid.Column="2"
-                     Grid.Row="5"/>
+                      Grid.Row="5"
+                      FontSize="25"
+                      TextAlignment="Center"
+                      Text="{Binding Result}"/>
+
+        <ui:TextBlock Grid.Column="2"
+                      Grid.Row="7"
+                      Style="{StaticResource Annotation}"
+                      Text="Precision"/>
+
+        <ui:TextBlock Grid.Column="2"
+                      Grid.Row="8"
+                      Style="{StaticResource Annotation}">
+            press esc to exit
+            <LineBreak/>
+            drag anywhere to move
+        </ui:TextBlock>
 
 
         <ui:TextBox Grid.Column="2"
                     Grid.Row="1"
                     TextAlignment="Center"
-                    FontSize="25"/>
+                    FontSize="25"
+                    Text="{Binding Num1Input, Mode=OneWayToSource}"/>
 
         <ui:TextBox Grid.Column="2"
                     Grid.Row="3"
                     TextAlignment="Center"
-                    FontSize="25"/>
+                    FontSize="25"
+                    Text="{Binding Num2Input, Mode=OneWayToSource}"/>
+        
         
         
     </Grid>

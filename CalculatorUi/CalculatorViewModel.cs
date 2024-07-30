@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using CalculatorUi;
 using CommunityToolkit.Mvvm.Input;
 
 namespace CalculatorProject.CalculatorUi;
@@ -15,6 +16,8 @@ class CalculatorViewModel : INotifyPropertyChanged
 {
     private double _num1;
     private double _num2;
+    private string _num1Input;
+    private string _num2Input;
     private double _result;
     private UInt16 _precision;
     private bool _canDecreasePrecision = true;
@@ -37,6 +40,36 @@ class CalculatorViewModel : INotifyPropertyChanged
         {
             _num2 = value;
             OnPropertyChanged(nameof(Num2));
+        }
+    }
+
+    public string Num1Input
+    {
+        get => _num1Input;
+        set
+        {
+            if (!string.IsNullOrEmpty(value))
+            {
+                _num1Input = value;
+                ValidationUtils.InputNumberValidation(value);
+                _num1 = double.Parse(value);
+                OnPropertyChanged(nameof(Num1Input));
+            }
+        }
+    }
+
+    public string Num2Input
+    {
+        get => _num2Input;
+        set
+        {
+            if (!string.IsNullOrEmpty(value))
+            {
+                _num2Input = value;
+                ValidationUtils.InputNumberValidation(value);
+                _num2 = double.Parse(value);
+                OnPropertyChanged(nameof(Num2Input));
+            }
         }
     }
 
@@ -87,32 +120,32 @@ class CalculatorViewModel : INotifyPropertyChanged
         }
     }
 
-    ICommand AddCommand
+    public ICommand AddCommand
     {
         get;
     }
 
-    ICommand SubtractCommand
+    public ICommand SubtractCommand
     {
         get;
     }
 
-    ICommand MultiplyCommand
+    public ICommand MultiplyCommand
     {
         get;
     }
 
-    ICommand DivideCommand
+    public ICommand DivideCommand
     {
         get;
     }
 
-    ICommand PowerCommand
+    public ICommand PowerCommand
     {
         get;
     }
 
-    ICommand ChangePrecisionCommand
+    public ICommand ChangePrecisionCommand
     {
         get;
     }
