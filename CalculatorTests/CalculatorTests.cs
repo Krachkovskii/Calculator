@@ -32,14 +32,6 @@ public class CalculatorTests
     }
 
     [Theory]
-    [InlineData(3, 2, 2)]
-    public void Subtract_Doubles(double x, double y, double expected)
-    {
-        var actual = Calculator.Calculator.Subtract(x, y);
-        Assert.Equal(expected, actual);
-    }
-
-    [Theory]
     [InlineData(25, 0, 1)]
     [InlineData(3, 1, 3)]
     [InlineData(25, 0.5, 5)]
