@@ -1,4 +1,5 @@
 ﻿using Xunit;
+using CalculatorProject.Calculator;
 
 namespace CalculatorProject.CalculatorTests;
 
@@ -29,6 +30,15 @@ public class CalculatorTests
     public void DivideByZero()
     {
         var ex = Assert.Throws<DivideByZeroException>(() => Calculator.Calculator.Divide(5, 0));
+    }
+
+    [Theory]
+    [InlineData(-5d, 2d, -2.5d)]
+    [InlineData(0, 3d, 0)]
+    public void Divide(double x, double y, double expected)
+    {
+        var actual = Calculator.Calculator.Divide(x, y);
+        Assert.Equal(expected, actual);
     }
 
     [Theory]
